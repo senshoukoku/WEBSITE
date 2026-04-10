@@ -2,7 +2,12 @@ import { useRef, useState, FormEvent } from 'react';
 import '../index.css';
 import emailjs from '@emailjs/browser';
 
-const EmailForm = () => {
+// Define the interface for props
+interface EmailFormProps {
+  onSuccess: () => void;
+}
+
+const EmailForm = ({ onSuccess }: EmailFormProps) => {
   const form = useRef<HTMLFormElement>(null);
 
   // State management for all fields
@@ -25,7 +30,9 @@ const EmailForm = () => {
         )
         .then(
           () => {
-            alert("Message sent successfully!");
+            // SUCCESS: Call the prop to trigger the custom modal in App.js
+            onSuccess(); 
+
             // Reset form fields
             setName('');
             setEmail('');
@@ -35,6 +42,7 @@ const EmailForm = () => {
           },
           (error) => {
             console.log('FAILED...', error.text);
+            // Optional: You could add a failure modal or alert here
           }
         );
     }

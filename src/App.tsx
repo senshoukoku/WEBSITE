@@ -6,21 +6,20 @@ import { useState } from 'react';
 import EmailForm from './Components/EmailForm';
 
 function App() {
-  // 1. STATE FOR MOBILE MENU
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // NEW: State for the Success Modal
+  const [showModal, setShowModal] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // 2. HELPER TO CLOSE MENU WHEN A LINK IS CLICKED
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
   return (
     <div>
-      {/* Boxicons CSS - Better to put this in index.html, but fine here for now */}
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
 
       <header className="header">
@@ -28,14 +27,12 @@ function App() {
           Kurt <span>Setriani Bognot</span>
         </a>
 
-        {/* 3. DYNAMIC ICON CLASS based on state */}
         <i 
           className={`bx ${isMenuOpen ? 'bx-x' : 'bx-menu'}`} 
           id="menu-icon" 
           onClick={toggleMenu}
         ></i>
 
-        {/* 4. DYNAMIC NAVBAR CLASS based on state */}
         <nav className={`navbar ${isMenuOpen ? 'active' : ''}`}>
           <a href="#about" onClick={closeMenu}>About</a>
           <a href="#services" onClick={closeMenu}>Services</a>
@@ -54,8 +51,7 @@ function App() {
           <p>
             I am a passionate web developer with a knack for creating visually stunning and user-friendly websites. 
             With a strong background in graphic design and media editing, I bring a unique blend of creativity and 
-            technical expertise to every project I undertake. Whether it's crafting responsive layouts, optimizing user experience, 
-            or designing eye-catching graphics, I am dedicated to delivering high-quality results that exceed client expectations.
+            technical expertise to every project I undertake.
           </p>
 
           <div className="social-icons">
@@ -66,7 +62,6 @@ function App() {
 
           <div className="btn-group">
             <a href="#contact" className="btn">Let's Chat?</a>
-            {/*<a href="#contact" className="btn">Contact</a>*/}
           </div>
         </div>
 
@@ -82,111 +77,69 @@ function App() {
         </div>
         <div className="about-content">
           <h2>About <span>Me</span></h2>
-          <p>I have a passion for creating innovative and user-friendly digital experiences. 
-            With a strong foundation in both design and development, 
-            I strive to bridge the gap between aesthetics and functionality to deliver solutions that not only look great 
-            but also perform exceptionally well.</p>
+          <p>I have a passion for creating innovative and user-friendly digital experiences...</p>
           <a href="#" className='btn'>Read More</a>
         </div>
       </section>
 
-{/* --- SERVICES SECTION --- */}
-<section className="services" id="services">
-  <h2 className="heading">Services</h2>
-  <div className="services-container">
-    {[
-      { 
-        Icon: Figma, 
-        title: "UI/UX Designing", 
-        description: "Crafting intuitive and visually stunning user interfaces with a focus on user experience and modern design principles." 
-      },
-      { 
-        Icon: Code, 
-        title: "Web Development", 
-        description: "Building responsive, high-performance websites using the latest technologies like React, TypeScript, and basic HTML, JS, & CSS." 
-      },
-      { 
-        Icon: Code, 
-        title: "System Development", 
-        description: "Developing robust application / form systems ensure your needs are scalable, secure, and efficient." 
-      },
-      { 
-        Icon: Pen, 
-        title: "Graphic Designing", 
-        description: "Creating unique brand identities, logos, and digital assets that capture your brand's essence and stand out." 
-      }
-    ].map((service, index) => (
-      <div className="service-box" key={index}>
-        <div className="service-info">
-          <div className="ico">
-            <service.Icon />
-          </div>
-          <h4>{service.title}</h4>
-          {/* Use the dynamic description from the object instead of hardcoded text */}
-          <p>{service.description}</p>
+      {/* --- SERVICES SECTION --- */}
+      <section className="services" id="services">
+        <h2 className="heading">Services</h2>
+        <div className="services-container">
+          {[
+            { Icon: Figma, title: "UI/UX Designing", description: "Crafting intuitive and visually stunning user interfaces." },
+            { Icon: Code, title: "Web Development", description: "Building responsive, high-performance websites." },
+            { Icon: Code, title: "System Development", description: "Developing robust application systems." },
+            { Icon: Pen, title: "Graphic Designing", description: "Creating unique brand identities and logos." }
+          ].map((service, index) => (
+            <div className="service-box" key={index}>
+              <div className="service-info">
+                <div className="ico"><service.Icon /></div>
+                <h4>{service.title}</h4>
+                <p>{service.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
-{/* --- PROJECTS SECTION --- */}
-<section className="projects" id="projects">
-  <h2 className="heading">Projects</h2>
-  
-  <div className="projects-box">
-    {[
-      { image: ProjectImages.Project1, title: "Animal Kingdom UI/UX Webpage", desc: "This project was made during the MSICONNECT CRASH COURSE FOR FIGMA UI/UX DESIGN." },
-      { image: ProjectImages.Project2, title: "Discord Server News and Updates", desc: "This project was an idea for people who want to check the updates related to the server, though it was not published." },
-      { image: ProjectImages.Project3, title: "Discord Server News and Updates", desc: "This was the log-in/register section of the page designed in Figma." },
-      { image: ProjectImages.Project4, title: "Portfolio Website", desc: "This website was built to showcase my skills & projects, provide more information about me, and how you can reach out to me." },
-      { 
-        image: ProjectImages.Project5, 
-        title: "The Student Information System", 
-        desc: "This system was developed by TEAM ABSALOM. As the team leader, I supervised the project and created the initial functionalities, followed by the work of our Database Specialist, Bryxz Jaspher L. Legaspi.", 
-        link: "http://sisdatabase2026.somee.com/"
-      },
-      { image: ProjectImages.Project6, title: "The Cover Page for a School Organization Post", desc: "This cover page was made through Figma for a school organization post, The Core Techs." },
-      { image: ProjectImages.Project7, title: "Tarpaulin Design for Achievements", desc: "This design was made with Figma for a school organization celebratory display, The Core Techs." },
-      { image: ProjectImages.Project8, 
-        title: "PrimeLayout Graphics", 
-        desc: "This Logo was made for my startup local business.",
-        link: "https://web.facebook.com/PrimeLayoutPH"},
-      { image: ProjectImages.Project9, title: "Logo Design: Pemela Learning Center", desc: "This logo was made by a request from the client. Made through Figma." },
-      { image: ProjectImages.Project10, title: "Logo Design: Nexit Construction", desc: "This logo was made by a request from the client. Made through Figma." },
-      { image: ProjectImages.Project11, title: "Logo Design: Firm Foundation Academy", desc: "This logo was made by a request from the client. Made through Figma." },
-      { image: ProjectImages.Project12, title: "Logo Design: Bakers Kitchen", desc: "This logo was made by a request from the client. Made through Figma." },
-      { image: ProjectImages.Project13, title: "Logo Design: Zina Logistics", desc: "This logo was made by a request from the client. Made through Figma." },
-      { image: ProjectImages.Project14, title: "Logo Design: Young Stars Football Club", desc: "This logo was made by a request from the client. Made through Figma." },
-    ].map((project, index) => (
-      <div className="project-card" key={index}>
-        <img src={project.image} alt={project.title} />
-        <h3>{project.title}</h3>
-        <p>{project.desc}</p>
-        
-        {/* This logic checks: "Does this specific project have a link?" 
-            If YES, it shows the <a> tag. 
-            If NO, it renders nothing. 
-        */}
-        {project.link ? (
-          <a 
-            href={project.link} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn"
-          >
-            View Project
-          </a>
-        ) : null}
-      </div>
-    ))}
-
-  </div>
-</section>
+      {/* --- PROJECTS SECTION --- */}
+      <section className="projects" id="projects">
+        <h2 className="heading">Projects</h2>
+        <div className="projects-box">
+          {[
+            { image: ProjectImages.Project1, title: "Animal Kingdom UI/UX Webpage", desc: "Made during the MSICONNECT CRASH COURSE." },
+            { image: ProjectImages.Project5, title: "The Student Information System", desc: "Developed by TEAM ABSALOM.", link: "http://sisdatabase2026.somee.com/" },
+            { image: ProjectImages.Project8, title: "PrimeLayout Graphics", desc: "Logo made for my startup local business.", link: "https://web.facebook.com/PrimeLayoutPH" },
+            // Add other projects as needed
+          ].map((project, index) => (
+            <div className="project-card" key={index}>
+              <img src={project.image} alt={project.title} />
+              <h3>{project.title}</h3>
+              <p>{project.desc}</p>
+              {project.link && (
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn">View Project</a>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* --- CONTACT SECTION --- */}
-      {/* Refactored Contact Section into a separate component for better organization */}
-      <EmailForm />
+      {/* Updated: Pass the setShowModal function to the form */}
+      <EmailForm onSuccess={() => setShowModal(true)} />
+
+      {/* --- SUCCESS MODAL --- */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="modal-icon"><i className='bx bx-check-circle'></i></div>
+            <h3>Success!</h3>
+            <p>Your message has been sent successfully. I'll get back to you soon!</p>
+            <button className="btn" onClick={() => setShowModal(false)}>OK</button>
+          </div>
+        </div>
+      )}
 
       {/* --- FOOTER --- */}
       <footer className="footer">
