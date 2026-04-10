@@ -183,14 +183,14 @@ function App() {
               </div>
               <div className="education-content">
                 <div className="content">
-                  <div className="year"><i className='bx bxs-buildings'></i> 2020-2023</div>
+                  <div className="year"><i className='bx bxs-buildings'></i> 2019-2023</div>
                   <h3>Junior High School</h3>
                   <p>Graduated at <span>La Verdad Christian College - Apalit</span> with interest on ICT.</p>
                 </div>
               </div>
               <div className="education-content">
                 <div className="content">
-                  <div className="year"><i className='bx bxs-buildings'></i> 2020-2023</div>
+                  <div className="year"><i className='bx bxs-buildings'></i> 2016-2019</div>
                   <h3>Elementary School</h3>
                   <p>Graduated at <span>San Marcos Elementary School</span> with interest on Program and Computer Technologies.</p>
                 </div>
