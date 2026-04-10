@@ -136,10 +136,10 @@ function App() {
   
   <div className="projects-box">
     {[
-      { image: ProjectImages.Project1, title: "Project One", desc: "Detailed description for project 1." },
-      { image: ProjectImages.Project2, title: "Project Two", desc: "Detailed description for project 2." },
-      { image: ProjectImages.Project3, title: "Project Three", desc: "Detailed description for project 3." },
-      { image: ProjectImages.Project4, title: "Project Four", desc: "Detailed description for project 4." },
+      { image: ProjectImages.Project1, title: "Animal Kingdom UI/UX Webpage", desc: "This project was made during the MSICONNECT CRASH COURSE FOR FIGMA UI/UX DESIGN." },
+      { image: ProjectImages.Project2, title: "Discord Server News and Updates", desc: "This project was an idea for people who want to check the updates related to the server, though it was not published." },
+      { image: ProjectImages.Project3, title: "Discord Server News and Updates", desc: "This was the log-in/register section of the page designed in Figma." },
+      { image: ProjectImages.Project4, title: "Portfolio Website", desc: "*This* website was built to showcase my skills & projects, more information about me, and how you can reach out to me." },
       { image: ProjectImages.Project5, title: "Project Five", desc: "Detailed description for project 5." },
       { image: ProjectImages.Project6, title: "Project Six", desc: "Detailed description for project 6." },
       { image: ProjectImages.Project7, title: "Project Seven", desc: "Detailed description for project 7." },
@@ -155,7 +155,7 @@ function App() {
         <img src={project.image} alt={project.title} />
         <h3>{project.title}</h3>
         <p>{project.desc}</p>
-        <div className="btn">View Project</div>
+        {/*<div className="btn">View Project</div>*/}
       </div>
     ))}
   </div>
