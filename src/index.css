@@ -787,8 +787,18 @@ section{
     padding: 5rem 5%;
   }
 
-  .heading h2{
-    font-size: 1rem;
+  .expertise h2{
+    font-size: 6rem;
+    margin: 3rem 0;
+  }
+
+  .services h2 {
+    font-size: 6rem;
+    margin: 3rem 0;
+  }
+
+  .projects h2 {
+    font-size: 6rem;
     margin: 3rem 0;
   }
 
