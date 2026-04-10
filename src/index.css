@@ -69,14 +69,34 @@ body{
   transform: scale(1.1);
 }
 
-span{
+/* --- UPDATED SPAN WITH GLOW EFFECT --- */
+span {
   background: linear-gradient(
     180deg,
     #ff2a2a 10%,
-    #fff789 100%  
+    #fff789 100% 
   );
   background-clip: text;
+  -webkit-background-clip: text; /* Required for Chrome/Safari */
   color: transparent;
+  
+  /* THE GLOW: Adjust the last value (15px) to make the glow stronger or softer */
+  filter: drop-shadow(0 0 15px rgba(255, 42, 42, 0.5)); 
+  display: inline-block; /* Helps with rendering filters on some browsers */
+}
+
+.cursor {
+  font-weight: 200;
+  color: #ff9d00;
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+  /* Matching glow for the typing cursor */
+  text-shadow: 0 0 10px #ff9d00, 0 0 20px #ff9d00;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .navbar{
