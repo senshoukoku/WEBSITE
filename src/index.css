@@ -186,6 +186,36 @@ section{
   align-items: center;
 }
 
+/* --- FLOATING ANIMATION --- */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px); /* Adjust this for higher/lower bounce */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.home-img img {
+  width: 32vw;
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--main-color);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  
+  /* Applying the animation */
+  animation: float 4s ease-in-out infinite; 
+}
+
+/* Optional: Slight pulse on the glow to match the movement */
+.home-img img:hover {
+  box-shadow: 0 0 50px var(--main-color);
+  transform: scale(1.02) translateY(-10px);
+}
+
 .home-img img{
   width: 32vw;
   border-radius: 50%;
