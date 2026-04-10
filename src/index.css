@@ -531,6 +531,10 @@ section{
     align-items: center;
     text-align: center;
   }
+  .home-content h1{
+    text-align: center;
+    margin: 2rem 0;
+  }
   .home-img img{
     width: 56vw;
   }
@@ -544,6 +548,18 @@ section{
   }
   .about img{
     width: 52vw;
+  }
+
+  .services h2{
+    font-size: 5rem;
+  }
+
+  .projects h2{
+    font-size: 5rem;
+  }
+
+  .contact h2{
+    font-size: 5rem;
   }
 
   .contact form{
