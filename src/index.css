@@ -129,9 +129,9 @@ section{
 .home-content h1{
   font-size: 6rem;
   font-weight: 700;
-  margin-bottom: 0.4rem;
+  margin-bottom: 1rem;
   margin-top: 1.5rem;
-  line-height: 0.4;
+  line-height: 1;
 }
 
 .home-content h3{
