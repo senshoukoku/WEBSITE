@@ -283,6 +283,7 @@ section{
 
 .services h2{
   color: var(--text-color);
+  font-size: 7rem;
 }
 
 .services-container {
@@ -349,6 +350,10 @@ section{
 
 .projects{
   background-color: var(--second-bg-color);
+}
+
+.projects h2{
+  font-size: 7rem;
 }
 
 .projects-box{
@@ -421,6 +426,7 @@ section{
 }
 
 .contact h2{
+  font-size: 7rem;
   margin-bottom: 3rem;
   color: var(--text-color);
 }
