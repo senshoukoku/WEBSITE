@@ -73,7 +73,7 @@ span{
 .navbar a{
   font-size: 1.2rem;
   color: var(--text-color);
-  margin-left: 4rem;
+  margin-left: 1.5rem;
   font-weight: 500;
   transition: 0.3s ease-in-out;
   border-bottom: 3px solid transparent;
@@ -164,6 +164,18 @@ section{
               0 0 75px lightblue,
               0 0 100px lightblue;
 
+}
+
+.cursor {
+  font-weight: 200;
+  color: #ff9d00;
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .social-icons a{
@@ -269,6 +281,148 @@ section{
 
 ::-webkit-scrollbar-track{
   background-color: var(--bg-color);
+}
+
+/* --- TECHNICAL EXPERTISE STYLES --- */
+.expertise {
+  background: var(--bg-color); /* Use your existing darker bg variable */
+  padding: 100px 7% 100px;
+}
+
+.expertise-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.expertise-box {
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.05); /* Slight transparency */
+  border: 1px solid rgba(255, 157, 0, 0.2);
+  border-radius: 2rem;
+  transition: 0.4s ease;
+  text-align: center;
+}
+
+.expertise-box:hover {
+  border-color: #ff9d00;
+  transform: translateY(-10px);
+  background: rgba(255, 157, 0, 0.03);
+}
+
+.expertise-box h3 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.skill-tag {
+  background: transparent;
+  border: 1px solid #ff9d00;
+  color: #ff9d00;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.skill-tag:hover {
+  background: #ff9d00;
+  color: #000;
+  box-shadow: 0 0 1rem #ff9d00;
+}
+
+/* Responsive fix for small screens */
+@media (max-width: 768px) {
+  .expertise-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- EDUCATION SECTION STYLES --- */
+.education {
+  background: var(--second-bg-color);
+  min-height: auto;
+  padding-bottom: 7rem;
+}
+
+.education .education-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+  justify-content: center;
+}
+
+.education-column .title {
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem 2rem;
+  color: #fff;
+}
+
+.education-column .education-box {
+  border-left: 2px solid #ff9d00;
+}
+
+.education-box .education-content {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.education-box .education-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -11px;
+  width: 20px;
+  height: 20px;
+  background: #ff9d00;
+  border-radius: 50%;
+}
+
+.education-content .content {
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid #ff9d00;
+  border-radius: .6rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.education-content .content:hover {
+  box-shadow: 0 0 1rem #ff9d00;
+  transform: translateY(-5px);
+}
+
+.education-content .content .year {
+  font-size: 1.5rem;
+  color: #ff9d00;
+  padding-bottom: .5rem;
+}
+
+.education-content .content .year i {
+  padding-right: .5rem;
+}
+
+.education-content .content h3 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.education-content .content p {
+  font-size: 1.4rem;
+  color: #ccc;
+  padding-top: .5rem;
 }
 
 .heading{
@@ -542,77 +696,119 @@ section{
   font-size: 16px;
 }
 
-@media(max-width: 1285px){
-  #menu-icon{
+/* --- KEEP ALL YOUR PREVIOUS CSS ABOVE THIS LINE --- */
+
+/* --- ADJUSTED @MEDIA SECTION --- */
+
+@media(max-width: 1285px) {
+  #menu-icon {
     display: block;
     color: var(--main-color);
+    cursor: pointer;
   }
-  .navbar{
+
+  .navbar {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 50%;
-    padding: 1rem 3rem;
-    background: rgba(0, 0, 0, 0.08);
-    border-bottom-left-radius: 2rem;
-    border-left: 2px solid var(--main-color);
+    width: 100%; /* Changed from 50% to 100% for better mobile centering */
+    padding: 1rem 3%;
+    background: var(--bg-color); /* Solid bg ensures readability over content */
     border-bottom: 2px solid var(--main-color);
     display: none;
+    text-align: center;
   }
-  .navbar a{
+
+  .navbar.active {
+    display: block;
+  }
+
+  .navbar a {
     display: block;
     font-size: 2rem;
-    margin: 3rem 0;
+    margin: 2.5rem 0;
     color: var(--text-color);
-
-  } 
-  .navbar.active{
-    display: block;
+    margin-left: 0; /* Remove the left margin for centered text */
   }
-  .gradient-btn{
+
+  .gradient-btn {
     display: none;
   }
-  .home{
-    flex-direction: column-reverse;
+
+  .home {
+    flex-direction: column-reverse; /* Put text below the image on mobile */
     margin: 5rem 0;
-    gap: 5rem;
-  }
-  .home-content{
-    align-items: center;
+    gap: 3rem;
     text-align: center;
   }
-  .home-content h1{
+
+  .home-content {
+    align-items: center; /* Center flex items */
+    text-align: center;  /* Center text */
+  }
+
+  .home-content h1 {
+    font-size: clamp(4rem, 10vw, 6rem); /* Scale h1 so it doesn't break lines awkwardly */
     text-align: center;
-    margin: 2rem 0;
+    margin: 1rem 0;
   }
-  .home-img img{
-    width: 56vw;
+
+  .home-content h3 {
+    font-size: clamp(2rem, 5vw, 3rem);
   }
-  .about{
-    flex-direction: column-reverse;
+
+  .home-img img {
+    width: 65vw; /* Slightly larger for mobile visibility */
+    max-width: 300px; /* Prevents it from getting too huge on tablets */
+  }
+
+  .about {
+    flex-direction: column; /* Stack about section */
     text-align: center;
+    gap: 4rem;
   }
-  .about h2{
+
+  .about-content h2 {
     text-align: center;
-    margin: 2rem 0;
-  }
-  .about img{
-    width: 52vw;
+    font-size: clamp(4rem, 8vw, 7rem);
+    margin: 1.5rem 0;
   }
 
-  .services h2{
-    font-size: 5rem;
+  .about-img img {
+    width: 60vw;
+    max-width: 300px;
   }
 
-  .projects h2{
-    font-size: 5rem;
+  .expertise, .services, .projects, .education {
+    padding: 5rem 5%;
   }
 
-  .contact h2{
-    font-size: 5rem;
+  .heading {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    margin: 3rem 0;
   }
 
-  .contact form{
+  .contact h2 {
+    font-size: 4rem;
+  }
+
+  .contact form {
     flex-direction: column;
+    padding: 0 5%;
+  }
+}
+
+/* Extra fix for very small phones */
+@media(max-width: 480px) {
+  .home-content h1 {
+    font-size: 3.5rem;
+  }
+  
+  .project-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .project-card img {
+    height: 200px; /* Smaller images for small screens */
   }
 }
