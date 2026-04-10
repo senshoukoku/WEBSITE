@@ -107,7 +107,7 @@ function App() {
           <img src={profileimg} alt="Profile" />
         </div>
         <div className="about-content">
-          <h2>About <span>Me</span></h2>
+          <h2 className='heading'>About <span>Me</span></h2>
           <p>I have a passion for creating innovative and user-friendly digital experiences. I strive to bridge the gap between aesthetics and functionality.</p>
           <a href="#" className='btn'>Read More</a>
         </div>
