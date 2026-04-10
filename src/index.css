@@ -787,18 +787,23 @@ section{
     padding: 5rem 5%;
   }
 
+  .education h2 {
+    font-size: 4rem;
+    margin: 3rem 0;
+  }
+
   .expertise h2{
-    font-size: 6rem;
+    font-size: 4rem;
     margin: 3rem 0;
   }
 
   .services h2 {
-    font-size: 6rem;
+    font-size: 4rem;
     margin: 3rem 0;
   }
 
   .projects h2 {
-    font-size: 6rem;
+    font-size: 4rem;
     margin: 3rem 0;
   }
 
