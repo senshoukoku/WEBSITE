@@ -4,6 +4,7 @@ import './index.css';
 import { ProjectImages } from './images';
 import { useState, useEffect } from 'react'; // Added useEffect
 import EmailForm from './Components/EmailForm';
+import logoImg from './img/KSB 2026-ico.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,7 +58,9 @@ function App() {
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
 
       <header className="header">
-        <a href="#home" className="logo">Kurt <span>Setriani Bognot</span></a>
+        <a href="#home" className="logo">
+    <img src={logoImg} alt="KSB 2026 Logo" style={{ height: '50px', width: 'auto', objectFit: 'contain' }} />
+  </a>
 
         <i className={`bx ${isMenuOpen ? 'bx-x' : 'bx-menu'}`} id="menu-icon" onClick={toggleMenu}></i>
 

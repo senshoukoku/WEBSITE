@@ -39,6 +39,19 @@ body{
   text-align: var(--text-align);
 }
 
+.logo img {
+  scale: 2;
+  display: block;
+  margin-left: 6rem;
+  max-height: 5rem; /* Adjust this value to fit your header height */
+  width: auto;
+  transition: 0.3s ease-in-out;
+}
+
+.logo:hover img {
+  transform: scale(1.1);
+}
+
 #menu-icon{
   font-size: 3.5rem;
   color: var(--text-color);
