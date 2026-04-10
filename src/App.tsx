@@ -65,8 +65,8 @@ function App() {
           </div>
 
           <div className="btn-group">
-            <a href="#" className="btn">Hire</a>
-            <a href="#contact" className="btn">Contact</a>
+            <a href="#contact" className="btn">Let's Chat?</a>
+            {/*<a href="#contact" className="btn">Contact</a>*/}
           </div>
         </div>
 
@@ -139,25 +139,48 @@ function App() {
       { image: ProjectImages.Project1, title: "Animal Kingdom UI/UX Webpage", desc: "This project was made during the MSICONNECT CRASH COURSE FOR FIGMA UI/UX DESIGN." },
       { image: ProjectImages.Project2, title: "Discord Server News and Updates", desc: "This project was an idea for people who want to check the updates related to the server, though it was not published." },
       { image: ProjectImages.Project3, title: "Discord Server News and Updates", desc: "This was the log-in/register section of the page designed in Figma." },
-      { image: ProjectImages.Project4, title: "Portfolio Website", desc: "*This* website was built to showcase my skills & projects, more information about me, and how you can reach out to me." },
-      { image: ProjectImages.Project5, title: "Project Five", desc: "Detailed description for project 5." },
-      { image: ProjectImages.Project6, title: "Project Six", desc: "Detailed description for project 6." },
-      { image: ProjectImages.Project7, title: "Project Seven", desc: "Detailed description for project 7." },
-      { image: ProjectImages.Project8, title: "Project Eight", desc: "Detailed description for project 8." },
-      { image: ProjectImages.Project9, title: "Project Nine", desc: "Detailed description for project 9." },
-      { image: ProjectImages.Project10, title: "Project Ten", desc: "Detailed description for project 10." },
-      { image: ProjectImages.Project11, title: "Project Eleven", desc: "Detailed description for project 11." },
-      { image: ProjectImages.Project12, title: "Project Twelve", desc: "Detailed description for project 12." },
-      { image: ProjectImages.Project13, title: "Project Thirteen", desc: "Detailed description for project 13." },
-      { image: ProjectImages.Project14, title: "Project Fourteen", desc: "Detailed description for project 14." },
+      { image: ProjectImages.Project4, title: "Portfolio Website", desc: "This website was built to showcase my skills & projects, provide more information about me, and how you can reach out to me." },
+      { 
+        image: ProjectImages.Project5, 
+        title: "The Student Information System", 
+        desc: "This system was developed by TEAM ABSALOM. As the team leader, I supervised the project and created the initial functionalities, followed by the work of our Database Specialist, Bryxz Jaspher L. Legaspi.", 
+        link: "http://sisdatabase2026.somee.com/"
+      },
+      { image: ProjectImages.Project6, title: "The Cover Page for a School Organization Post", desc: "This cover page was made through Figma for a school organization post, The Core Techs." },
+      { image: ProjectImages.Project7, title: "Tarpaulin Design for Achievements", desc: "This design was made with Figma for a school organization celebratory display, The Core Techs." },
+      { image: ProjectImages.Project8, 
+        title: "PrimeLayout Graphics", 
+        desc: "This Logo was made for my startup local business.",
+        link: "https://web.facebook.com/PrimeLayoutPH"},
+      { image: ProjectImages.Project9, title: "Logo Design: Pemela Learning Center", desc: "This logo was made by a request from the client. Made through Figma." },
+      { image: ProjectImages.Project10, title: "Logo Design: Nexit Construction", desc: "This logo was made by a request from the client. Made through Figma." },
+      { image: ProjectImages.Project11, title: "Logo Design: Firm Foundation Academy", desc: "This logo was made by a request from the client. Made through Figma." },
+      { image: ProjectImages.Project12, title: "Logo Design: Bakers Kitchen", desc: "This logo was made by a request from the client. Made through Figma." },
+      { image: ProjectImages.Project13, title: "Logo Design: Zina Logistics", desc: "This logo was made by a request from the client. Made through Figma." },
+      { image: ProjectImages.Project14, title: "Logo Design: Young Stars Football Club", desc: "This logo was made by a request from the client. Made through Figma." },
     ].map((project, index) => (
       <div className="project-card" key={index}>
         <img src={project.image} alt={project.title} />
         <h3>{project.title}</h3>
         <p>{project.desc}</p>
-        {/*<div className="btn">View Project</div>*/}
+        
+        {/* This logic checks: "Does this specific project have a link?" 
+            If YES, it shows the <a> tag. 
+            If NO, it renders nothing. 
+        */}
+        {project.link ? (
+          <a 
+            href={project.link} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn"
+          >
+            View Project
+          </a>
+        ) : null}
       </div>
     ))}
+
   </div>
 </section>
 
