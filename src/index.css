@@ -658,12 +658,6 @@ section{
   animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.projects-modal-content h3 {
-  font-size: 3.2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
 
 .modal-overlay button{
   align-items: center;
