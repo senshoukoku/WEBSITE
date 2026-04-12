@@ -658,12 +658,6 @@ section{
   animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-
-.modal-overlay button{
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-}
 .projects-modal-box {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
