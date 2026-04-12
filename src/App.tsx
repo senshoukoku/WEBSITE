@@ -51,6 +51,7 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showProjectsModal, setShowProjectsModal] = useState(false);
+  const [isProjectsModalClosing, setIsProjectsModalClosing] = useState(false);
   const [projectsPage, setProjectsPage] = useState(1);
 
   // Typing animation
@@ -69,9 +70,7 @@ function App() {
 
       setDisplayText(updatedText);
 
-      if (isDeleting) {
-        setTypingSpeed(prevSpeed => prevSpeed / 2);
-      }
+      if (isDeleting) setTypingSpeed(prev => prev / 2);
 
       if (!isDeleting && updatedText === fullText) {
         setIsDeleting(true);
@@ -97,10 +96,11 @@ function App() {
 
   const openProjectsModal = () => {
     setProjectsPage(1);
+    setIsProjectsModalClosing(false);
     setShowProjectsModal(true);
   };
 
-  const closeProjectsModal = () => setShowProjectsModal(false);
+  const closeProjectsModal = () => setIsProjectsModalClosing(true);
 
   const renderProjectCard = (project: Project) => (
     <div className="project-card" key={project.id}>
@@ -123,7 +123,6 @@ function App() {
         <a href="#home" className="logo">
           <img src={logoImg} alt="KSB 2026 Logo" style={{ height: '50px', width: 'auto', objectFit: 'contain' }} />
         </a>
-
         <i className={`bx ${isMenuOpen ? 'bx-x' : 'bx-menu'}`} id="menu-icon" onClick={toggleMenu}></i>
 
         <nav className={`navbar ${isMenuOpen ? 'active' : ''}`}>
@@ -164,7 +163,7 @@ function App() {
         </div>
       </section>
 
-      {/* Keep your existing About / Expertise / Education / Services sections unchanged */}
+      {/* Keep your existing About / Expertise / Education / Services sections as-is */}
 
       <section className="projects" id="projects">
         <h2 className="heading">Projects</h2>
@@ -175,22 +174,20 @@ function App() {
 
         {projects.length > previewProjectCount && (
           <div className="projects-actions">
-            <button className="btn" onClick={openProjectsModal}>
-              See More
-            </button>
+            <button className="btn" onClick={openProjectsModal}>See More</button>
           </div>
         )}
 
         <div className="projects-portfolio-action">
-    <a
-      className="btn"
-      href="https://www.figma.com/deck/0KkT9ugI956ANgWTsZmyVv/PORTFOLIO-2025?node-id=1-27&t=iLYbrMHFVTdoS6ER-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      View Portfolio
-    </a>
-  </div>
+          <a
+            className="btn"
+            href="https://www.figma.com/deck/0KkT9ugI956ANgWTsZmyVv/PORTFOLIO-2025?node-id=1-1022&t=0YOLFe3cAFaKRptF-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Portfolio
+          </a>
+        </div>
       </section>
 
       <EmailForm onSuccess={() => setShowModal(true)} />
@@ -208,7 +205,16 @@ function App() {
 
       {showProjectsModal && (
         <div className="modal-overlay" onClick={closeProjectsModal}>
-          <div className="projects-modal-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className={`projects-modal-content ${isProjectsModalClosing ? 'closing' : ''}`}
+            onClick={(e) => e.stopPropagation()}
+            onAnimationEnd={() => {
+              if (isProjectsModalClosing) {
+                setShowProjectsModal(false);
+                setIsProjectsModalClosing(false);
+              }
+            }}
+          >
             <h3>All Projects</h3>
 
             <div className="projects-box projects-modal-box">
@@ -218,7 +224,7 @@ function App() {
             <div className="projects-pagination">
               <button
                 className="btn"
-                onClick={() => setProjectsPage((prev) => Math.max(prev - 1, 1))}
+                onClick={() => setProjectsPage(prev => Math.max(prev - 1, 1))}
                 disabled={projectsPage === 1}
               >
                 Previous
@@ -228,7 +234,7 @@ function App() {
 
               <button
                 className="btn"
-                onClick={() => setProjectsPage((prev) => Math.min(prev + 1, totalProjectsPages))}
+                onClick={() => setProjectsPage(prev => Math.min(prev + 1, totalProjectsPages))}
                 disabled={projectsPage === totalProjectsPages}
               >
                 Next

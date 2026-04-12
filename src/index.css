@@ -666,6 +666,10 @@ section{
   animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+.projects-modal-content.closing {
+  animation: popOut 0.25s ease forwards;
+}
+
 .projects-modal-content h3{
   font-size: 3.2rem;
   margin-bottom: 2rem;
@@ -694,14 +698,9 @@ section{
   box-shadow: none;
 }
 
-.contact{
-  background-color: var(--bg-color);
-}
-
-.contact h2{
-  font-size: 7rem;
-  margin-bottom: 3rem;
-  color: var(--text-color);
+@keyframes popOut {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.92); opacity: 0; }
 }
 
 .contact form{
