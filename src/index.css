@@ -642,10 +642,16 @@ section{
   cursor: pointer;
 }
 
-.projects-actions {
+.projects-actions{
   display: flex;
   justify-content: center;
   margin-top: 4rem;
+}
+
+.projects-portfolio-action{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .projects-modal-content {
@@ -660,17 +666,17 @@ section{
   animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.projects-modal-content h3 {
+.projects-modal-content h3{
   font-size: 3.2rem;
   margin-bottom: 2rem;
   text-align: center;
 }
 
-.projects-modal-box {
+.projects-modal-box{
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
-.projects-pagination {
+.projects-pagination{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -678,11 +684,11 @@ section{
   margin-top: 3rem;
 }
 
-.projects-pagination span {
+.projects-pagination span{
   font-size: 1.6rem;
 }
 
-.projects-pagination .btn:disabled {
+.projects-pagination .btn:disabled{
   opacity: 0.45;
   cursor: not-allowed;
   box-shadow: none;
