@@ -53,6 +53,49 @@ function App() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
+  const [showProjectsModal, setShowProjectsModal] = useState(false);
+const previewProjectCount = 3;
+
+const projects = [
+  { image: ProjectImages.Project1, title: "Animal Kingdom UI/UX Webpage", desc: "This project was made during the MSICONNECT CRASH COURSE FOR FIGMA UI/UX DESIGN." },
+  { image: ProjectImages.Project2, title: "Discord Server News and Updates", desc: "This project was an idea for people who want to check the updates related to the server, though it was not published." },
+  { image: ProjectImages.Project3, title: "Discord Server News and Updates", desc: "This was the log-in/register section of the page designed in Figma." },
+  { image: ProjectImages.Project4, title: "Portfolio Website", desc: "This website was built to showcase my skills & projects, provide more information about me, and how you can reach out to me." },
+  {
+    image: ProjectImages.Project5,
+    title: "The Student Information System",
+    desc: "This system was developed by TEAM ABSALOM. As the team leader, I supervised the project and created the initial functionalities, followed by the work of our Database Specialist, Bryxz Jaspher L. Legaspi.",
+    link: "http://sisdatabase2026.somee.com/"
+  },
+  { image: ProjectImages.Project6, title: "The Cover Page for a School Organization Post", desc: "This cover page was made through Figma for a school organization post, The Core Techs." },
+  { image: ProjectImages.Project7, title: "Tarpaulin Design for Achievements", desc: "This design was made with Figma for a school organization celebratory display, The Core Techs." },
+  {
+    image: ProjectImages.Project8,
+    title: "PrimeLayout Graphics",
+    desc: "This Logo was made for my startup local business.",
+    link: "https://web.facebook.com/PrimeLayoutPH"
+  },
+  { image: ProjectImages.Project9, title: "Logo Design: Pemela Learning Center", desc: "This logo was made by a request from the client. Made through Figma." },
+  { image: ProjectImages.Project10, title: "Logo Design: Nexit Construction", desc: "This logo was made by a request from the client. Made through Figma." },
+  { image: ProjectImages.Project11, title: "Logo Design: Firm Foundation Academy", desc: "This logo was made by a request from the client. Made through Figma." },
+  { image: ProjectImages.Project12, title: "Logo Design: Bakers Kitchen", desc: "This logo was made by a request from the client. Made through Figma." },
+  { image: ProjectImages.Project13, title: "Logo Design: Zina Logistics", desc: "This logo was made by a request from the client. Made through Figma." },
+  { image: ProjectImages.Project14, title: "Logo Design: Young Stars Football Club", desc: "This logo was made by a request from the client. Made through Figma." },
+];
+
+const renderProjectCard = (project: { image: string; title: string; desc: string; link?: string }, key: string | number) => (
+  <div className="project-card" key={key}>
+    <img src={project.image} alt={project.title} />
+    <h3>{project.title}</h3>
+    <p>{project.desc}</p>
+    {project.link ? (
+      <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn">
+        View Project
+      </a>
+    ) : null}
+  </div>
+);
+
   return (
     <div>
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
@@ -226,30 +269,7 @@ function App() {
   <h2 className="heading">Projects</h2>
   
   <div className="projects-box">
-    {[
-      { image: ProjectImages.Project1, title: "Animal Kingdom UI/UX Webpage", desc: "This project was made during the MSICONNECT CRASH COURSE FOR FIGMA UI/UX DESIGN." },
-      { image: ProjectImages.Project2, title: "Discord Server News and Updates", desc: "This project was an idea for people who want to check the updates related to the server, though it was not published." },
-      { image: ProjectImages.Project3, title: "Discord Server News and Updates", desc: "This was the log-in/register section of the page designed in Figma." },
-      { image: ProjectImages.Project4, title: "Portfolio Website", desc: "This website was built to showcase my skills & projects, provide more information about me, and how you can reach out to me." },
-      { 
-        image: ProjectImages.Project5, 
-        title: "The Student Information System", 
-        desc: "This system was developed by TEAM ABSALOM. As the team leader, I supervised the project and created the initial functionalities, followed by the work of our Database Specialist, Bryxz Jaspher L. Legaspi.", 
-        link: "http://sisdatabase2026.somee.com/" // ONLY this project has a link
-      },
-      { image: ProjectImages.Project6, title: "The Cover Page for a School Organization Post", desc: "This cover page was made through Figma for a school organization post, The Core Techs." },
-      { image: ProjectImages.Project7, title: "Tarpaulin Design for Achievements", desc: "This design was made with Figma for a school organization celebratory display, The Core Techs." },
-      { image: ProjectImages.Project8,
-        title: "PrimeLayout Graphics",
-        desc: "This Logo was made for my startup local business.",
-        link: "https://web.facebook.com/PrimeLayoutPH" },
-      { image: ProjectImages.Project9, title: "Logo Design: Pemela Learning Center", desc: "This logo was made by a request from the client. Made through Figma." },
-      { image: ProjectImages.Project10, title: "Logo Design: Nexit Construction", desc: "This logo was made by a request from the client. Made through Figma." },
-      { image: ProjectImages.Project11, title: "Logo Design: Firm Foundation Academy", desc: "This logo was made by a request from the client. Made through Figma." },
-      { image: ProjectImages.Project12, title: "Logo Design: Bakers Kitchen", desc: "This logo was made by a request from the client. Made through Figma." },
-      { image: ProjectImages.Project13, title: "Logo Design: Zina Logistics", desc: "This logo was made by a request from the client. Made through Figma." },
-      { image: ProjectImages.Project14, title: "Logo Design: Young Stars Football Club", desc: "This logo was made by a request from the client. Made through Figma." },
-    ].map((project, index) => (
+    {projects.slice(0, previewProjectCount).map((project, index) => (
       <div className="project-card" key={index}>
         <img src={project.image} alt={project.title} />
         <h3>{project.title}</h3>
@@ -272,6 +292,14 @@ function App() {
       </div>
     ))}
   </div>
+
+    {projects.length > previewProjectCount && (
+    <div className="projects-actions">
+      <button className="btn" onClick={() => setShowProjectsModal(true)}>
+        See More
+      </button>
+    </div>
+  )}
 </section>
 
       <EmailForm onSuccess={() => setShowModal(true)} />
@@ -286,6 +314,20 @@ function App() {
           </div>
         </div>
       )}
+
+      {showProjectsModal && (
+  <div className="modal-overlay" onClick={() => setShowProjectsModal(false)}>
+    <div className="projects-modal-content" onClick={(e) => e.stopPropagation()}>
+      <h3>All Projects</h3>
+      <div className="projects-box projects-modal-box">
+        {projects.map((project, index) => renderProjectCard(project, `modal-${index}`))}
+      </div>
+      <button className="btn" onClick={() => setShowProjectsModal(false)}>
+        Close
+      </button>
+    </div>
+  </div>
+)}
 
       <footer className="footer">
         <div className="social-icons">

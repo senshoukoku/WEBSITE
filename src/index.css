@@ -640,6 +640,40 @@ section{
   cursor: pointer;
 }
 
+.projects-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.projects-modal-content {
+  background: #121212;
+  padding: 3rem;
+  border-radius: 25px;
+  border: 2px solid #ff9d00;
+  width: min(95%, 1300px);
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 0 30px rgba(255, 157, 0, 0.3);
+  animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.projects-modal-content h3 {
+  font-size: 3.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+
+.modal-overlay button{
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.projects-modal-box {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
 .contact{
   background-color: var(--bg-color);
 }
