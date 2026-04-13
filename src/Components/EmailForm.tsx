@@ -23,10 +23,10 @@ const EmailForm = ({ onSuccess }: EmailFormProps) => {
     if (form.current) {
       emailjs
         .sendForm(
-          'service_w08gk5t', 
-          'template_xu4jx41', 
-          form.current, 
-          'NQJsmC0nLbWXtRdB0'
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          form.current,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         )
         .then(
           () => {
