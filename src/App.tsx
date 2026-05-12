@@ -186,7 +186,7 @@ function App() {
           {[
             {
               category: "Web & Software Development",
-              skills: ["React.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Java", "C++", "Vite"]
+              skills: ["ReactJS", "TypeScript", "JavaScript", "HTML5", "CSS3", "Java", "C++", "Vite", "TailwindCSS", "Visual Basic", "NodeJS", "Vite", "Git", "Typescript"]
             },
             {
               category: "Design & Creative",
