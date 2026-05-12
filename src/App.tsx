@@ -45,8 +45,9 @@ const projects: Project[] = [
   { id: "project-12", image: ProjectImages.Project12, title: "Logo Design: Bakers Kitchen", desc: "This logo was made by a request from the client. Made through Figma." },
   { id: "project-13", image: ProjectImages.Project13, title: "Logo Design: Zina Logistics", desc: "This logo was made by a request from the client. Made through Figma." },
   { id: "project-14", image: ProjectImages.Project14, title: "Logo Design: Young Stars Football Club", desc: "This logo was made by a request from the client. Made through Figma." },
+  { id: "project-15", image: ProjectImages.Project8, title: "NOTINO", desc: "...Coming Soon..." },  
 ];
-
+  
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
